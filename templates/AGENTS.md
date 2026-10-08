@@ -25,9 +25,17 @@ For standard daily engineering workflows, do not search or guess. Load and follo
 - **Kubernetes (K8s)**: Load `kubernetes-k8s-suite` (pod troubleshooting CrashLoopBackOff/OOMKilled, Helm charts, production manifest skeletons).
 - **Terraform & Infrastructure**: Load `terraform-iac-suite` (multi-cloud remote state locking, Terragrunt DRY patterns, OpenTofu migration).
 - **Office Documents**: Load `office-documents-suite` (PDF parsing/forms/OCR, Word `.docx` XML manipulation, Excel `.xlsx` formula models).
+- **UI Design Systems**: Load `ui-design-systems-suite` (tokens architecture, Bento/Glass/Neobrutalism/Dark styles, anti-slop visual invariants).
+- **UX & Accessibility**: Load `ux-accessibility-suite` (Nielsen 10, 4-state lifecycle, WCAG 2.2 AA/AAA compliance).
+- **Figma & Prototyping**: Load `figma-design-prototyping-suite` (Figma MCP automation, design-to-code, Code Connect mappings).
+- **Mobile Native UI**: Load `mobile-native-ui-suite` (iOS Apple HIG/SwiftUI, Android M3/Compose, Expo Router/NativeWind).
+- **3D & Motion**: Load `creative-3d-motion-suite` (Three.js WebGL, GLSL shaders, Spline, GSAP ScrollTrigger).
+- **Frontend Web Apps**: Load `frontend-webapp-design-suite` (Next.js RSC boundaries, container queries, Core Web Vitals).
+- **Landing Pages & CRO**: Load `landing-page-cro-suite` (PAS/AIDA landing page architecture, onboarding UX, pricing/paywall flows).
+- **Generative UI & Vibe Clean**: Load `ai-generative-ui-suite` (Stitch/AutoClaw prompt engineering, Design Lab multi-variants, prototype unslop).
 
 ### Tier 2: Specialized Local Capabilities via MCP (Just-In-Time)
-When a task is outside the 10 Master Suites (bioinformatics, CAD/robotics, cloud SDK internals, specialized exploits, Apple HIG):
+When a task is outside the 18 Master Suites (bioinformatics, CAD/robotics, cloud SDK internals, specialized exploits):
 1. Query `search_capabilities` on the local capability finder MCP with a short intent query.
 2. Inspect the exact matching skill and read its `SKILL.md` (<500 tokens).
 3. Do not search for trivial tasks, and never search twice for the same task in one session.

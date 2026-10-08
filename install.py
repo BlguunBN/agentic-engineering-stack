@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Universal Installer for Agentic Engineering Stack.
 
-Installs the 10 Master Mega-Skills and links them to your active AI coding agents:
+Installs the 18 Master Mega-Skills and links them to your active AI coding agents:
 - Claude Code (~/.claude/skills)
 - OpenAI Codex (~/.codex/skills)
 - Pi Coding Agent (~/.pi/agent/skills)
