@@ -10,6 +10,12 @@ Installs the 18 Master Mega-Skills and links them to your active AI coding agent
 - OpenClaw (~/.openclaw/skills)
 - Hermes (~/.hermes/skills)
 - Roo / Cline (~/.roo/skills, ~/.cline/skills)
+- Agents (~/.agents/skills)
+- Gemini (~/.gemini/skills)
+- AGY (~/.agy/skills)
+
+Keep this list in sync with AGENT_SKILL_ROOTS below; a suite linked to an
+undocumented root still works, but this docstring stops being trustworthy.
 """
 
 from __future__ import annotations
