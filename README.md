@@ -1,0 +1,130 @@
+# Agentic Engineering Stack ⚡
+
+A high-performance, token-efficient engineering architecture for AI coding agents (Claude Code, OpenAI Codex, Pi, OpenCode, Cursor, Roo, Cline, Hermes).
+
+Combines **10 Unified Master Mega-Skills**, a **3-Tier Routing Hierarchy**, and a **4-Layer Defense-in-Depth Token Saving Architecture** (cutting session token costs by over **80%** while eliminating context overflow amnesia).
+
+---
+
+## 🌟 Why This Exists
+
+Most AI coding setups suffer from two major flaws:
+1. **Tool Overload & Flakes:** Hundreds of fragmented, overlapping skills fighting for model attention or failing silently with mangled paths.
+2. **Context Window Exhaustion:** AI agents dumping thousands of lines of logs, full-file reads, and conversational pleasantries into context, burning $100s/month and causing memory loss by turn 25.
+
+**Agentic Engineering Stack** replaces ad-hoc agent behavior with a proven, disciplined architecture.
+
+---
+
+## 🏗️ The 3-Tier Routing Architecture
+
+```
+                       User Prompt / Goal
+                               │
+                               ▼
+        ┌──────────────────────────────────────────────┐
+        │ TIER 1: The Fast-Path Master Suites (~80%)   │
+        │ Instant 0-hop resolution for daily dev loop.  │
+        │ Pre-indexed in AGENTS.md / system prompt.    │
+        └──────────────────────┬───────────────────────┘
+                               │
+               Is it a standard dev loop task?
+               ├── YES ──► Directly invoke Master Suite:
+               │           • systematic-debugging-suite
+               │           • web-scraping-suite
+               │           • unit-testing-suite
+               │           • git-workflow-suite
+               │           • docker-containers-suite
+               │           • kubernetes-k8s-suite
+               │           • code-review-standards-suite
+               │           • office-documents-suite
+               │           • terraform-iac-suite
+               │           • browser-automation-suite
+               │
+               └── NO (Specialized Domain / Niche Tool)
+                               │
+                               ▼
+        ┌──────────────────────────────────────────────┐
+        │ TIER 2: Just-In-Time MCP Finder (~18%)       │
+        │ Call `local-capability-finder` search.        │
+        │ Searches 8,700+ skills in <50ms.             │
+        │ Injects exact SKILL.md (<500 tokens).        │
+        └──────────────────────┬───────────────────────┘
+                               │
+               Did Tier 2 find a local match?
+               ├── YES ──► Load exact target SKILL.md
+               └── NO  ──► Drop to Tier 3
+                               │
+                               ▼
+        ┌──────────────────────────────────────────────┐
+        │ TIER 3: Ecosystem Fallback (`npx skills`)    │
+        │ Search public community registry if local is │
+        │ completely missing a brand new tool.         │
+        └──────────────────────────────────────────────┘
+```
+
+---
+
+## 📦 The 10 Master Mega-Skills (Suites)
+
+| Master Suite | Replaces / Unifies | Purpose & Key Flow |
+|---|---|---|
+| **`systematic-debugging-suite`** | `debugging`, `diagnosing-bugs`, `phase-gated-debugging`, `debugger` | Enforces the strict 4-phase diagnosis loop (**Reproduce → Isolate → Root Cause → Fix**). Forbids speculative patching. |
+| **`unit-testing-suite`** | `pytest`, `vitest`, `jest`, `junit-5`, `cucumber` | Language-specific routing matrix with AAA patterns, table-driven test cases, and behavioral assertions over implementation mocks. |
+| **`code-review-standards-suite`** | `code-review`, `clean-code`, `uncle-bob-craft`, `brooks-review` | 4-pillar review: Functional Correctness, Clean Code / SOLID design, Architectural coupling smells, and AI slop detection. |
+| **`git-workflow-suite`** | `git-workflow`, `pr-writer`, `caveman-commit`, `unslop-commit` | Conventional commits, unslop/caveman formatting, 3-way conflict resolution, and reviewer-friendly PR generation. |
+| **`web-scraping-suite`** | `firecrawl`, `firecrawl-crawl`, `firecrawl-agent`, `apify`, `skyvern` | Clean markdown for single URLs (`firecrawl`), recursive crawls, social platforms (`apify`), and behind-login (`skyvern`). |
+| **`browser-automation-suite`** | `playwright`, `cypress`, `puppeteer`, `selenium`, `agent-browser` | Headless navigation, semantic locator testing (`getByRole`), visual regression, and agent loops (`@e1` refs). |
+| **`docker-containers-suite`** | `docker-expert`, `dockerfile-generator`, `docker-compose`, `container-hardening` | Multi-stage caching, distroless minimal runners, non-root users, security hardening, and Docker Compose orchestration. |
+| **`kubernetes-k8s-suite`** | `kubernetes-ops`, `k8s-debug`, `helm-generator`, `k8s-manifests` | Pod diagnostics (`CrashLoopBackOff`, `OOMKilled`, `Pending`), Helm chart authoring, and production manifest skeletons. |
+| **`terraform-iac-suite`** | `terraform-engineer`, `terragrunt-generator`, `opentofu-migration` | Multi-cloud IaC with remote state locking, provider constraints, Terragrunt DRY layouts, and OpenTofu compatibility. |
+| **`office-documents-suite`** | `pdf`, `docx`, `xlsx`, `spreadsheets` | Format-accurate document engines: PDF parsing/tables (`pdfplumber`/`reportlab`), Word XML editing (`docx`), and Excel formula models (`openpyxl`). |
+
+---
+
+## 💰 4-Layer Token-Saving Architecture
+
+Proven across 25-turn real-world benchmarks on Claude 3.7 Sonnet: **83.6% cost reduction** and **97% context bloat reduction**:
+
+1. **Layer 1: Input & Tool Gating (`low-token-bilgu` / `ponytail`)**
+   - Search exact symbols before opening files.
+   - Line-range reading enforced for files >150 lines (using `offset`/`limit`).
+   - Minimal surgical edits with `edit` rather than whole-file rewrites.
+2. **Layer 2: Subagent Context Isolation (`cavecrew`)**
+   - Heavy exploration spanning >5 files runs in isolated child subagents.
+   - Only compact findings (`path:line`) return to the main thread, keeping 20+ file reads out of memory.
+3. **Layer 3: Output Prose Compression (`caveman` / `sharp-coder`)**
+   - Eliminates conversational filler, throat-clearing, and prompt repeating.
+   - Switchable to `/caveman ultra` or `/chisle` for instant telegram-terse responses under tight budgets.
+4. **Layer 4: Context Compaction (`context-compression`)**
+   - Checkpoints state into disk artifacts (`.planning/STATE.md` or git commits) on marathons >15 turns.
+   - Structured compaction triggers before crossing 50% context window capacity.
+
+---
+
+## 🚀 Quickstart & Installation
+
+### Option 1: Universal Installer (Python)
+Clone this repository and run the installer:
+
+```bash
+git clone https://github.com/BlguunBN/agentic-engineering-stack.git
+cd agentic-engineering-stack
+python install.py
+```
+
+The installer detects your installed AI agents and automatically links the Master Suites into their active directories (`~/.claude/skills`, `~/.codex/skills`, `~/.pi/agent/skills`, `~/.cursor/skills`, etc.).
+
+### Option 2: Selective Agent Installation
+To install only for specific agents:
+```bash
+python install.py --agents claude codex pi
+```
+
+### Option 3: Manual Integration
+Copy `templates/AGENTS.md` into your project root as `AGENTS.md` (or `AGENTS.local.md`) and copy the `suites/` folder into your agent's skills directory.
+
+---
+
+## 📜 License
+MIT License. Free to use, adapt, and share across personal and enterprise AI agent systems.
