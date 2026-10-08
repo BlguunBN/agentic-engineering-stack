@@ -15,11 +15,16 @@ Installs the 10 Master Mega-Skills and links them to your active AI coding agent
 from __future__ import annotations
 
 import argparse
+import io
 import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 HOME = Path.home()
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -36,6 +41,8 @@ AGENT_SKILL_ROOTS = {
     "roo": HOME / ".roo/skills",
     "cline": HOME / ".cline/skills",
     "agents": HOME / ".agents/skills",
+    "gemini": HOME / ".gemini/config/skills",
+    "agy": HOME / ".gemini/skills",
 }
 
 

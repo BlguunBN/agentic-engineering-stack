@@ -1,8 +1,8 @@
 # Agentic Engineering Stack ⚡
 
-A high-performance, token-efficient engineering architecture for AI coding agents (Claude Code, OpenAI Codex, Pi, OpenCode, Cursor, Roo, Cline, Hermes).
+A high-performance, token-efficient engineering architecture for AI coding agents (Antigravity/AGY, Claude Code, OpenAI Codex, Pi, OpenCode, Cursor, Roo, Cline, Hermes).
 
-Combines **10 Unified Master Mega-Skills**, a **3-Tier Routing Hierarchy**, and a **4-Layer Defense-in-Depth Token Saving Architecture** (cutting session token costs by over **80%** while eliminating context overflow amnesia).
+Combines **18 Unified Master Mega-Skills**, a **3-Tier Routing Hierarchy**, and a **4-Layer Defense-in-Depth Token Saving Architecture** (cutting session token costs by over **80%** while eliminating context overflow amnesia).
 
 ---
 
@@ -30,16 +30,16 @@ Most AI coding setups suffer from two major flaws:
                                │
                Is it a standard dev loop task?
                ├── YES ──► Directly invoke Master Suite:
-               │           • systematic-debugging-suite
-               │           • web-scraping-suite
-               │           • unit-testing-suite
-               │           • git-workflow-suite
-               │           • docker-containers-suite
-               │           • kubernetes-k8s-suite
-               │           • code-review-standards-suite
-               │           • office-documents-suite
-               │           • terraform-iac-suite
-               │           • browser-automation-suite
+               │           • Engineering: systematic-debugging-suite, unit-testing-suite,
+               │             code-review-standards-suite, git-workflow-suite
+               │           • Infrastructure: docker-containers-suite, kubernetes-k8s-suite,
+               │             terraform-iac-suite
+               │           • Automation: browser-automation-suite, web-scraping-suite,
+               │             office-documents-suite
+               │           • UI & Design: ui-design-systems-suite, ux-accessibility-suite,
+               │             figma-design-prototyping-suite, frontend-webapp-design-suite,
+               │             mobile-native-ui-suite, creative-3d-motion-suite,
+               │             landing-page-cro-suite, ai-generative-ui-suite
                │
                └── NO (Specialized Domain / Niche Tool)
                                │
@@ -65,8 +65,9 @@ Most AI coding setups suffer from two major flaws:
 
 ---
 
-## 📦 The 10 Master Mega-Skills (Suites)
+## 📦 The 18 Master Mega-Skills (Suites)
 
+### Core Engineering & Automation
 | Master Suite | Replaces / Unifies | Purpose & Key Flow |
 |---|---|---|
 | **`systematic-debugging-suite`** | `debugging`, `diagnosing-bugs`, `phase-gated-debugging`, `debugger` | Enforces the strict 4-phase diagnosis loop (**Reproduce → Isolate → Root Cause → Fix**). Forbids speculative patching. |
@@ -79,6 +80,18 @@ Most AI coding setups suffer from two major flaws:
 | **`kubernetes-k8s-suite`** | `kubernetes-ops`, `k8s-debug`, `helm-generator`, `k8s-manifests` | Pod diagnostics (`CrashLoopBackOff`, `OOMKilled`, `Pending`), Helm chart authoring, and production manifest skeletons. |
 | **`terraform-iac-suite`** | `terraform-engineer`, `terragrunt-generator`, `opentofu-migration` | Multi-cloud IaC with remote state locking, provider constraints, Terragrunt DRY layouts, and OpenTofu compatibility. |
 | **`office-documents-suite`** | `pdf`, `docx`, `xlsx`, `spreadsheets` | Format-accurate document engines: PDF parsing/tables (`pdfplumber`/`reportlab`), Word XML editing (`docx`), and Excel formula models (`openpyxl`). |
+
+### UI/UX, Frontend & Creative Design
+| Master Suite | Replaces / Unifies | Purpose & Key Flow |
+|---|---|---|
+| **`ui-design-systems-suite`** | `design-system`, `shadcn`, `tailwind`, `bento-ui`, `glassmorphism`, `anti-ui-slop`, `impeccable` | Complete design tokens architecture, style archetypes (Bento, Glass, Neobrutalism, Minimalist, Dark), component library standards, and anti-slop visual invariants. |
+| **`ux-accessibility-suite`** | `accessibility-compliance`, `wcag`, `accesslint`, `ux-audit`, `ux-flow`, `uxui-principles` | Usability heuristics (Nielsen 10, 168 cognitive laws), mandatory 4-state lifecycle (Loading, Empty, Error, Success), and strict WCAG 2.2 AA/AAA compliance. |
+| **`figma-design-prototyping-suite`** | `figma`, `figma-design-to-code`, `figma-code-connect`, `figma-use`, `wireframe-sketch` | Programmatic Figma MCP automation, bidirectional design-to-code translation, `.figma.tsx` Code Connect mappings, and design token synchronization. |
+| **`mobile-native-ui-suite`** | `apple-hig`, `swiftui-design`, `android-jetpack-compose-expert`, `expo-ui`, `react-native-design` | Native mobile UI across iOS (Apple HIG, SwiftUI Liquid Glass), Android (Material Design 3, Jetpack Compose), and Universal Cross-Platform (Expo Router, NativeWind). |
+| **`creative-3d-motion-suite`** | `threejs`, `3d-web-experience`, `spline-3d-integration`, `gsap-scrolltrigger`, `emil-design-eng` | Interactive 3D WebGL scenes (Three.js), custom GLSL shaders, Spline integration, GSAP ScrollTrigger timeline choreography, and spring micro-interactions. |
+| **`frontend-webapp-design-suite`** | `frontend-developer`, `react-ui-patterns`, `react-best-practices`, `vue-expert`, `sveltekit` | Server vs Client component boundaries (Next.js RSC), fluid responsive layouts, container queries, and Core Web Vitals performance optimization. |
+| **`landing-page-cro-suite`** | `landing-page-generator`, `website-builder`, `page-cro`, `signup-flow-cro`, `onboarding-cro` | High-converting landing page architecture (PAS/AIDA), frictionless signup and onboarding UX, transparent pricing tables, and paywall upgrade flows. |
+| **`ai-generative-ui-suite`** | `stitch-ui-design`, `autoclaw-design-capability`, `design-lab`, `vibe-code-cleanup`, `unship` | Prompt engineering for UI generative models (Stitch, AutoClaw), Design Lab multi-variant testing, and turning vibe-coded prototypes into production code. |
 
 ---
 
@@ -113,7 +126,7 @@ cd agentic-engineering-stack
 python install.py
 ```
 
-The installer detects your installed AI agents and automatically links the Master Suites into their active directories (`~/.claude/skills`, `~/.codex/skills`, `~/.pi/agent/skills`, `~/.cursor/skills`, etc.).
+The installer detects your installed AI agents and automatically links the Master Suites into their active directories (`~/.gemini/config/skills`, `~/.claude/skills`, `~/.codex/skills`, `~/.pi/agent/skills`, `~/.cursor/skills`, etc.).
 
 ### Option 2: Selective Agent Installation
 To install only for specific agents:
