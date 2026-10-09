@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "max_concurrency": 2,
+  "default_concurrency": 1,
+  "levels": {
+    "small": {"delegate": false, "max_workers": 0},
+    "moderate": {"delegate": "optional", "max_workers": 1},
+    "large": {"delegate": true, "max_workers": 2},
+    "high-risk": {"delegate": true, "max_workers": 2, "requires_independent_review": true, "requires_rollback_plan": true}
+  },
+  "guardrails": [
+    "Give each worker a self-contained task, scope, constraints, and expected output.",
+    "Small tasks and single-file edits do not use workers.",
+    "Workers receive only required file paths and tools; no broad transcript replay.",
+    "Workers do not run destructive commands, deploy, install third-party code, or activate skills without explicit approval.",
+    "Return a structured report; keep raw worker transcripts out of the main context."
+  ],
+  "handoff_schema": "delegation/handoff.schema.json"
+}

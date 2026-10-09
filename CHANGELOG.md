@@ -9,3 +9,4 @@
 - S4: Added executable workflow definitions, Git scope/secret preflight, subprocess verification receipts, completion evidence gates, a bugfix regression fixture, and explicit approval checkpoints.
 - S5 (Stack side only): Drafted the public Finder Contract v1, added a version-gated adapter facade and mock compatibility tests. Joint release remains blocked until Finder implements the same public contract.
 - S6 (partial): Added opt-in redacted checkpoints and independent output benchmarking. RTK 0.49.0 was measured; sqz and provider token accounting were unavailable.
+- S7 (partial): Added host-neutral delegation limits and validated handoff schema; inspected Pi/OMP versions and documented actual local integration evidence. No Stack host extension is shipped or advertised as verified.

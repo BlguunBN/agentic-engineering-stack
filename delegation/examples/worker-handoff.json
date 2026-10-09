@@ -1,0 +1,15 @@
+{
+  "task_id": "review-auth-001",
+  "status": "needs-review",
+  "files_examined": ["src/auth/session.ts"],
+  "findings": [
+    {
+      "path": "src/auth/session.ts",
+      "line": 87,
+      "issue": "Refresh-token validation is not applied on this branch.",
+      "severity": "high"
+    }
+  ],
+  "tests_run": [],
+  "next_action": "Confirm intended refresh behavior and add regression coverage."
+}
