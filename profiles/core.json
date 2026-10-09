@@ -5,9 +5,15 @@
   "max_loaded_suites": 2,
   "fallback": "finder-specialist-when-needed",
   "routes": [
-    {"intent": "debug", "match_any": ["debug", "bug", "regression", "crash"], "primary": "aes:skill:systematic-debugging-suite"},
-    {"intent": "testing", "match_any": ["test", "unit test", "coverage", "regression test"], "primary": "aes:skill:unit-testing-suite"},
-    {"intent": "review", "match_any": ["review", "audit code", "pull request"], "primary": "aes:skill:code-review-standards-suite"},
-    {"intent": "git", "match_any": ["git", "commit", "merge conflict", "pull request"], "primary": "aes:skill:git-workflow-suite"}
+    {"intent": "debug", "priority": 100, "match_any": ["debug", "bug", "regression", "crash"], "primary": "aes:skill:systematic-debugging-suite"},
+    {"intent": "testing", "priority": 90, "match_any": ["test", "unit test", "coverage", "regression test"], "primary": "aes:skill:unit-testing-suite"},
+    {"intent": "review", "priority": 80, "match_any": ["review", "audit code", "code review", "pull request review"], "primary": "aes:skill:code-review-standards-suite"},
+    {"intent": "git", "priority": 70, "match_any": ["git", "commit", "merge conflict", "prepare pull request", "open pull request"], "primary": "aes:skill:git-workflow-suite"},
+    {"intent": "browser", "priority": 65, "match_any": ["browser automation", "playwright", "cypress", "selenium"], "primary": "aes:skill:browser-automation-suite"},
+    {"intent": "web-scraping", "priority": 60, "match_any": ["scrape", "crawl", "extract web page"], "primary": "aes:skill:web-scraping-suite"},
+    {"intent": "documents", "priority": 60, "match_any": ["pdf", "docx", "xlsx", "office document"], "primary": "aes:skill:office-documents-suite"},
+    {"intent": "docker", "priority": 60, "match_any": ["docker", "container", "image hardening"], "primary": "aes:skill:docker-containers-suite"},
+    {"intent": "kubernetes", "priority": 60, "match_any": ["kubernetes", "k8s", "helm"], "primary": "aes:skill:kubernetes-k8s-suite"},
+    {"intent": "terraform", "priority": 60, "match_any": ["terraform", "opentofu", "terragrunt"], "primary": "aes:skill:terraform-iac-suite"}
   ]
 }

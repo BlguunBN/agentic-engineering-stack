@@ -7,7 +7,12 @@
   "extends": "core",
   "routes": [
     {"intent": "frontend", "match_any": ["frontend", "next.js", "react", "vue", "svelte"], "primary": "aes:skill:frontend-webapp-design-suite"},
-    {"intent": "accessibility", "match_any": ["accessibility", "wcag", "keyboard navigation"], "primary": "aes:skill:ux-accessibility-suite"},
-    {"intent": "design-system", "match_any": ["design system", "design tokens", "component library"], "primary": "aes:skill:ui-design-systems-suite"}
+    {"intent": "accessibility", "priority": 70, "match_any": ["accessibility", "wcag", "keyboard navigation"], "primary": "aes:skill:ux-accessibility-suite"},
+    {"intent": "design-system", "priority": 60, "match_any": ["design system", "design tokens", "component library"], "primary": "aes:skill:ui-design-systems-suite"},
+    {"intent": "figma", "match_any": ["figma", "figma design", "design to code"], "primary": "aes:skill:figma-design-prototyping-suite"},
+    {"intent": "mobile", "match_any": ["mobile app", "swiftui", "jetpack compose", "react native"], "primary": "aes:skill:mobile-native-ui-suite"},
+    {"intent": "motion-3d", "match_any": ["three.js", "webgl", "gsap", "3d scene"], "primary": "aes:skill:creative-3d-motion-suite"},
+    {"intent": "landing-page", "match_any": ["landing page", "signup conversion", "pricing page"], "primary": "aes:skill:landing-page-cro-suite"},
+    {"intent": "generative-ui", "match_any": ["generate ui", "generative ui", "stitch ui", "vibe code cleanup"], "primary": "aes:skill:ai-generative-ui-suite"}
   ]
 }

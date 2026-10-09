@@ -1,13 +1,10 @@
 {
   "schema_version": 1,
   "name": "infrastructure",
-  "purpose": "Route infrastructure tasks with risk-aware specialist selection.",
+  "purpose": "Use core direct infrastructure routes with risk-aware operational gates.",
   "max_loaded_suites": 2,
   "fallback": "finder-specialist-when-needed",
   "extends": "core",
-  "routes": [
-    {"intent": "docker", "match_any": ["docker", "container", "image hardening"], "primary": "aes:skill:docker-containers-suite"},
-    {"intent": "kubernetes", "match_any": ["kubernetes", "k8s", "helm"], "primary": "aes:skill:kubernetes-k8s-suite"},
-    {"intent": "terraform", "match_any": ["terraform", "opentofu", "terragrunt"], "primary": "aes:skill:terraform-iac-suite"}
-  ]
+  "gates": ["read-only-inspection-first", "approval-before-apply", "risk-and-rollback-review"],
+  "routes": []
 }
