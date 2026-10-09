@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "name": "research",
+  "purpose": "Keep repository exploration targeted and query Finder only for niche needs.",
+  "max_loaded_suites": 2,
+  "fallback": "finder-specialist-when-needed",
+  "extends": "core",
+  "routes": [
+    {"intent": "web-research", "match_any": ["scrape", "crawl", "extract web page"], "primary": "aes:skill:web-scraping-suite"},
+    {"intent": "documents", "match_any": ["pdf", "docx", "xlsx", "office document"], "primary": "aes:skill:office-documents-suite"}
+  ]
+}

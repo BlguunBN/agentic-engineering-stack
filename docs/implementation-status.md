@@ -5,7 +5,7 @@ Phases follow `AGENTIC_ENGINEERING_STACK_IMPLEMENTATION_PLAN.md`; a phase is com
 | Phase | Status | Evidence / remaining gate |
 |---|---|---|
 | S0 — baseline, tests, integration decisions | Complete | Inventory/compatibility docs, 18 route examples, standard-library inventory tests, Windows/Linux CI, and honest README claims. Two unit tests pass; disposable-home installer smoke test created 18 targets and preserved a pre-existing unmanaged directory. |
-| S1 — manifest, profiles, safe installer | Not started | Requires S0 complete. |
+| S1 — manifest, profiles, safe installer | Complete | `stack.manifest.json` validates all 18 stable IDs; six routing profiles; installer rejects invalid selections, supports dry-run, installs only core four by default, verifies targets, and reports skips/conflicts. Isolated installer/manifest tests pass. |
 | S2 — progressive disclosure and suite linting | Not started | Preserve all 18 IDs; require content-quality and reference validation. |
 | S3 — deterministic routing | Not started | Implement and test runtime routing, not config-only examples. |
 | S4 — enforceable workflows and checks | Not started | Scripts/hooks need evidence-linked tests and safe approval behavior. |

@@ -123,21 +123,24 @@ Clone this repository and run the installer:
 ```bash
 git clone https://github.com/BlguunBN/agentic-engineering-stack.git
 cd agentic-engineering-stack
+python install.py --dry-run
 python install.py
 ```
 
-The installer uses configured agent-root paths and links or copies suites where it detects an existing root. These host mappings are not yet verified against host versions; review `install.py` and the [compatibility baseline](docs/compatibility.md) before running it.
+Without `--skills`, the standalone fallback installs only the four core suites into detected configured roots, rather than all 18. Existing unrelated destinations are never overwritten. Use `--skills <suite>...` for an explicit subset. Finder remains the intended discovery and lifecycle owner; this fallback does not register sources with Finder. Configured host paths are not verified against host versions; review `install.py` and the [compatibility baseline](docs/compatibility.md) before installing.
 
 ### Option 2: Selective Agent Installation
 To install only for specific agents:
 ```bash
-python install.py --agents claude codex pi
+python install.py --agents claude codex pi --skills systematic-debugging-suite unit-testing-suite
 ```
 
 ### Option 3: Manual Integration
-Copy `templates/AGENTS.md` into your project root as `AGENTS.md` (or `AGENTS.local.md`) and copy the `suites/` folder into your agent's skills directory.
+Copy `templates/AGENTS.md` into your project root as `AGENTS.md` (or `AGENTS.local.md`) and copy only task-relevant suite folders into your agent's skills directory.
+
+The versioned [`stack.manifest.json`](stack.manifest.json) lists all 18 canonical IDs. The six JSON profiles in `profiles/` describe routing defaults; they do not instruct agents to preload every tagged suite. The standalone installer is intentionally a limited fallback and does not provide update/remove/rollback ownership. Use Finder for managed lifecycle operations once its public integration contract is available.
 
 ---
 
 ## 📜 License
-MIT License. Free to use, adapt, and share across personal and enterprise AI agent systems.
+MIT License. See [LICENSE](LICENSE).

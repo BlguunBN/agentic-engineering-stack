@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "core",
+  "purpose": "Directly route common engineering tasks; load only the selected suite.",
+  "max_loaded_suites": 2,
+  "fallback": "finder-specialist-when-needed",
+  "routes": [
+    {"intent": "debug", "match_any": ["debug", "bug", "regression", "crash"], "primary": "aes:skill:systematic-debugging-suite"},
+    {"intent": "testing", "match_any": ["test", "unit test", "coverage", "regression test"], "primary": "aes:skill:unit-testing-suite"},
+    {"intent": "review", "match_any": ["review", "audit code", "pull request"], "primary": "aes:skill:code-review-standards-suite"},
+    {"intent": "git", "match_any": ["git", "commit", "merge conflict", "pull request"], "primary": "aes:skill:git-workflow-suite"}
+  ]
+}

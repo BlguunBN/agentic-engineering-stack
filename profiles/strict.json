@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": "strict",
+  "purpose": "Apply deeper verification and independent review to high-risk changes.",
+  "max_loaded_suites": 2,
+  "fallback": "finder-specialist-when-needed",
+  "extends": "core",
+  "gates": ["targeted-tests", "security-review", "risk-and-rollback-review"],
+  "routes": []
+}

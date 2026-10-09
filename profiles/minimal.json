@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "name": "minimal",
+  "purpose": "Small bootstrap; load no suites until task intent requires one.",
+  "max_loaded_suites": 1,
+  "fallback": "finder-specialist-when-needed",
+  "routes": []
+}

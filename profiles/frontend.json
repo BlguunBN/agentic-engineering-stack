@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "frontend",
+  "purpose": "Add task-specific frontend and design routes to core routing.",
+  "max_loaded_suites": 2,
+  "fallback": "finder-specialist-when-needed",
+  "extends": "core",
+  "routes": [
+    {"intent": "frontend", "match_any": ["frontend", "next.js", "react", "vue", "svelte"], "primary": "aes:skill:frontend-webapp-design-suite"},
+    {"intent": "accessibility", "match_any": ["accessibility", "wcag", "keyboard navigation"], "primary": "aes:skill:ux-accessibility-suite"},
+    {"intent": "design-system", "match_any": ["design system", "design tokens", "component library"], "primary": "aes:skill:ui-design-systems-suite"}
+  ]
+}

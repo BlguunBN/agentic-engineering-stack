@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "namespace": "aes",
+  "package": "agentic-engineering-stack",
+  "capabilities": [
+    {
+      "id": "aes:skill:ai-generative-ui-suite",
+      "path": "suites/ai-generative-ui-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:browser-automation-suite",
+      "path": "suites/browser-automation-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:code-review-standards-suite",
+      "path": "suites/code-review-standards-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "core"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:creative-3d-motion-suite",
+      "path": "suites/creative-3d-motion-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:docker-containers-suite",
+      "path": "suites/docker-containers-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "infrastructure"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:figma-design-prototyping-suite",
+      "path": "suites/figma-design-prototyping-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:frontend-webapp-design-suite",
+      "path": "suites/frontend-webapp-design-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:git-workflow-suite",
+      "path": "suites/git-workflow-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "core"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:kubernetes-k8s-suite",
+      "path": "suites/kubernetes-k8s-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "infrastructure"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:landing-page-cro-suite",
+      "path": "suites/landing-page-cro-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:mobile-native-ui-suite",
+      "path": "suites/mobile-native-ui-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:office-documents-suite",
+      "path": "suites/office-documents-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "research"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:systematic-debugging-suite",
+      "path": "suites/systematic-debugging-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "core"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:terraform-iac-suite",
+      "path": "suites/terraform-iac-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "infrastructure"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:ui-design-systems-suite",
+      "path": "suites/ui-design-systems-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:unit-testing-suite",
+      "path": "suites/unit-testing-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "core"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:ux-accessibility-suite",
+      "path": "suites/ux-accessibility-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "design",
+        "frontend"
+      ],
+      "requires": []
+    },
+    {
+      "id": "aes:skill:web-scraping-suite",
+      "path": "suites/web-scraping-suite",
+      "kind": "skill",
+      "activation": "on-demand",
+      "profile_tags": [
+        "engineering",
+        "research"
+      ],
+      "requires": []
+    }
+  ]
+}
