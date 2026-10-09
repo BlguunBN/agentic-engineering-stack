@@ -1,8 +1,8 @@
 # Agentic Engineering Stack ⚡
 
-A high-performance, token-efficient engineering architecture for AI coding agents (Antigravity/AGY, Claude Code, OpenAI Codex, Pi, OpenCode, Cursor, Roo, Cline, Hermes).
+A collection of 18 engineering skill suites and routing guidance for AI coding agents. Host compatibility varies and is not implied by a configured installer path.
 
-Combines **18 Unified Master Mega-Skills**, a **3-Tier Routing Hierarchy**, and a **4-Layer Defense-in-Depth Token Saving Architecture** (cutting session token costs by over **80%** while eliminating context overflow amnesia).
+The repository describes three-tier capability routing and context-efficiency practices. Their end-to-end behavior and any token or cost savings are not yet benchmarked in this checkout.
 
 ---
 
@@ -97,7 +97,7 @@ Most AI coding setups suffer from two major flaws:
 
 ## 💰 4-Layer Token-Saving Architecture
 
-Proven across 25-turn real-world benchmarks on Claude 3.7 Sonnet: **83.6% cost reduction** and **97% context bloat reduction**:
+These are workflow recommendations, not measured guarantees. No reproducible provider-accounted benchmark is currently included; see [the current-state baseline](docs/current-state.md).
 
 1. **Layer 1: Input & Tool Gating (`low-token-bilgu` / `ponytail`)**
    - Search exact symbols before opening files.
@@ -126,7 +126,7 @@ cd agentic-engineering-stack
 python install.py
 ```
 
-The installer detects your installed AI agents and automatically links the Master Suites into their active directories (`~/.gemini/config/skills`, `~/.claude/skills`, `~/.codex/skills`, `~/.pi/agent/skills`, `~/.cursor/skills`, etc.).
+The installer uses configured agent-root paths and links or copies suites where it detects an existing root. These host mappings are not yet verified against host versions; review `install.py` and the [compatibility baseline](docs/compatibility.md) before running it.
 
 ### Option 2: Selective Agent Installation
 To install only for specific agents:
