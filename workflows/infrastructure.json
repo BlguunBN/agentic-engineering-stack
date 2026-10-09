@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "name": "infrastructure",
+  "minimum_evidence": ["validate", "plan"],
+  "approval_actions": ["delete", "deploy", "apply", "modify-secrets", "install-third-party"]
+}

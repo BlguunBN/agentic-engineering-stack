@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "name": "bugfix",
+  "minimum_evidence": ["regression"],
+  "approval_actions": ["delete", "deploy", "apply", "modify-secrets", "install-third-party"]
+}
