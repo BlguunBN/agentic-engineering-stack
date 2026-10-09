@@ -1,6 +1,12 @@
 ---
 name: ux-accessibility-suite
 description: "Master unified UX & Accessibility suite. Integrates Nielsen's 10 usability heuristics, 168 cognitive UX laws, interaction design, microcopy feedback loops, and WCAG 2.2 AA/AAA accessibility compliance & automated audits."
+use_when: "Auditing or implementing usability, semantics, keyboard access, or WCAG requirements."
+avoid_when: "Changing visual styling with no user-impact or accessibility scope."
+entry_inputs: "User flows, target conformance level, components, assistive-technology needs."
+workflow: "Inspect interaction and content, identify barriers, make semantic fixes, re-audit."
+verification: "Test keyboard/focus, semantics, contrast, states, and automated checks."
+exit_output: "Prioritized issues or fixes with concrete verification evidence."
 category: "design-and-ux"
 tools:
   - accesslint

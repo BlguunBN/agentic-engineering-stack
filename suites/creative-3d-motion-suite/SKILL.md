@@ -1,6 +1,12 @@
 ---
 name: creative-3d-motion-suite
 description: "Master unified Creative 3D, WebGL & Motion suite. Integrates Three.js 3D scenes, WebGL shaders, Spline integrations, GSAP ScrollTrigger timeline choreography, and Emil Kowalski-grade micro-interactions."
+use_when: "Building interactive 3D scenes, WebGL effects, or scroll-linked motion."
+avoid_when: "Adding simple static layout or motion that native CSS can handle."
+entry_inputs: "Visual goal, runtime/device targets, assets, framework, and motion constraints."
+workflow: "Select minimal rendering stack, build scene, optimize, then verify interactions."
+verification: "Check frame performance, reduced motion, responsive behavior, and cleanup."
+exit_output: "Working visual implementation and performance/accessibility evidence."
 category: "creative-and-media"
 tools:
   - threejs

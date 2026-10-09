@@ -1,6 +1,12 @@
 ---
 name: mobile-native-ui-suite
 description: "Master unified Mobile & Native App UI/UX suite. Consolidates Apple Human Interface Guidelines (HIG), SwiftUI, Android Material Design 3 & Jetpack Compose, and cross-platform mobile patterns (React Native, Expo Router, Flutter)."
+use_when: "Building mobile-native or cross-platform app navigation and interface patterns."
+avoid_when: "Implementing desktop-only web layouts or platform-neutral backend logic."
+entry_inputs: "Target platform, framework, device capabilities, user flow, and accessibility needs."
+workflow: "Apply platform conventions, implement states and navigation, test on target sizes."
+verification: "Check touch/focus behavior, safe areas, accessibility, and platform-specific states."
+exit_output: "Mobile UI implementation with device/platform verification evidence."
 category: "design-and-ux"
 tools:
   - react-native

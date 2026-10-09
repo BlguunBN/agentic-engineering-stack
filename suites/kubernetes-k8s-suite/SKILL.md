@@ -1,6 +1,12 @@
 ---
 name: kubernetes-k8s-suite
 description: "Master unified Kubernetes (K8s) suite. Integrates cluster operations, troubleshooting pods (CrashLoopBackOff, Pending, OOMKilled), declarative manifest generation, Helm chart authoring, and ingress/networking setup."
+use_when: "Troubleshooting workloads or authoring Kubernetes and Helm configuration."
+avoid_when: "Making unapproved production changes or working outside Kubernetes."
+entry_inputs: "Cluster/context, namespace, workload symptoms, manifests, and authorization."
+workflow: "Inspect read-only state first, isolate cause, propose minimal change, validate safely."
+verification: "Run manifest validation and targeted checks; verify rollout only when authorized."
+exit_output: "Root cause or manifest changes with risk and verification evidence."
 category: "cloud-and-security"
 tools:
   - kubectl

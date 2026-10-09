@@ -1,6 +1,12 @@
 ---
 name: ui-design-systems-suite
 description: "Master unified UI & Design Systems suite. Consolidates design systems (Tailwind v4, shadcn/ui, Radix), token architecture, visual styles (Bento, Glassmorphism, Neobrutalism, Minimalist, Swiss, Dark Mode), and anti-slop visual polish into an end-to-end design foundation."
+use_when: "Defining or applying design tokens, component primitives, or a visual system."
+avoid_when: "Implementing a one-off screen with no reusable system needs."
+entry_inputs: "Existing tokens/components, brand direction, target framework, and constraints."
+workflow: "Choose coherent visual direction, define tokens, compose reusable primitives, refine."
+verification: "Check contrast, states, responsive behavior, consistency, and implementation fit."
+exit_output: "Design-system changes with accessible visual examples."
 category: "design-and-ux"
 tools:
   - tailwind

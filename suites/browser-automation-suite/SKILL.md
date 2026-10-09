@@ -1,6 +1,12 @@
 ---
 name: browser-automation-suite
 description: "Master unified browser automation & E2E testing suite. Consolidates Playwright, Cypress, Puppeteer, Selenium, and Agent-Browser. Provides clear decision trees for headless automation, visual regression, snapshot testing, and cross-browser CI."
+use_when: "Automating browser interactions or testing user-visible web flows."
+avoid_when: "Testing isolated logic that needs no browser or DOM runtime."
+entry_inputs: "App URL, user journey, supported browsers, test environment, and assertions."
+workflow: "Select existing browser stack, isolate state, use semantic locators, assert outcomes."
+verification: "Run the targeted browser checks and retain failure evidence."
+exit_output: "Automation changes and reproducible browser-test results."
 category: "software-engineering"
 tools:
   - playwright
@@ -43,17 +49,4 @@ A unified guide and control layer for driving browsers, taking screenshots, and 
 
 ## 3. Best Practices (Playwright First)
 
-```typescript
-import { test, expect } from '@playwright/test';
-
-test('login flow verifies user dashboard', async ({ page }) => {
-  await page.goto('/login');
-  await page.getByLabel('Email').fill('user@example.com');
-  await page.getByLabel('Password').fill('secret');
-  await page.getByRole('button', { name: 'Sign in' }).click();
-
-  // Assert consequence
-  await expect(page).toHaveURL('/dashboard');
-  await expect(page.getByRole('heading', { name: 'Welcome back' })).toBeVisible();
-});
-```
+Prefer semantic locators and assert a user-visible consequence. A focused login example is in [references/playwright-login.md](references/playwright-login.md). Use test-only credentials and isolated state.

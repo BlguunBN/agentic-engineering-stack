@@ -1,6 +1,12 @@
 ---
 name: unit-testing-suite
 description: "Master unified unit testing suite. Routes across modern test runners (Pytest, Vitest, Jest, JUnit 5, TestNG, Cucumber/BDD). Provides standards for test fixtures, mocking boundaries, table-driven tests, and red-green-refactor TDD cycles."
+use_when: "Writing or changing unit, integration, or regression tests."
+avoid_when: "Reviewing code without test-writing scope or replacing project test conventions."
+entry_inputs: "Behavior contract, test runner, existing fixtures, and edge cases."
+workflow: "Choose native runner, write behavior-level tests, isolate inputs, iterate red-green-refactor."
+verification: "Run focused tests and confirm assertions detect the intended behavior."
+exit_output: "Focused test changes and exact command/result."
 category: "software-engineering"
 ---
 
@@ -38,32 +44,4 @@ A comprehensive guide for generating, structuring, and running high-confidence u
 
 ## 3. Quick Reference Templates
 
-### Pytest (Python)
-```python
-import pytest
-from my_module import calculate_discount
-
-@pytest.mark.parametrize("price, tier, expected", [
-    (100.0, "standard", 100.0),
-    (100.0, "gold", 80.0),
-    (0.0, "gold", 0.0),
-])
-def test_calculate_discount(price, tier, expected):
-    assert calculate_discount(price, tier) == expected
-```
-
-### Vitest (TypeScript)
-```typescript
-import { describe, it, expect } from 'vitest';
-import { parseUserRole } from './auth';
-
-describe('parseUserRole', () => {
-  it.each([
-    ['ADMIN', 'admin'],
-    ['USER', 'user'],
-    ['UNKNOWN', 'guest'],
-  ])('maps %s to %s', (input, expected) => {
-    expect(parseUserRole(input)).toBe(expected);
-  });
-});
-```
+Framework-specific Pytest and Vitest examples are available in [references/pytest-vitest.md](references/pytest-vitest.md). Use project-native fixtures and assert observable behavior.

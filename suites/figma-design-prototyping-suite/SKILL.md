@@ -1,6 +1,12 @@
 ---
 name: figma-design-prototyping-suite
 description: "Master unified Figma & design-to-code suite. Integrates Figma MCP automation, Code Connect component mapping, bidirectional design translation, tokens extraction, and rapid wireframing."
+use_when: "Translating a Figma design into implementation or synchronizing design tokens."
+avoid_when: "Designing without a Figma artifact or modifying unrelated application behavior."
+entry_inputs: "Figma file/frame, target framework, existing component library, and design constraints."
+workflow: "Inspect structure and tokens, map components, implement, then compare visually."
+verification: "Check responsive behavior, interaction states, and design-to-code consistency."
+exit_output: "Implemented design mapping and visual verification evidence."
 category: "design-and-ux"
 tools:
   - figma

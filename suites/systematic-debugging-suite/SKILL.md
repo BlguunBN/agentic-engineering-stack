@@ -1,6 +1,12 @@
 ---
 name: systematic-debugging-suite
 description: "Master unified systematic debugging suite. Enforces the 4-phase diagnosis loop (Reproduce -> Isolate -> Root Cause -> Fix) with phase-gated safeguards, log analysis, stack trace correlation, and regression prevention. Prevents speculative patching."
+use_when: "Diagnosing a bug, regression, crash, or unexpected behavior."
+avoid_when: "Implementing a new feature without a failure to diagnose."
+entry_inputs: "Observed symptom, reproduction steps, environment, logs, and expected behavior."
+workflow: "Reproduce, isolate, establish root cause, apply minimal fix, add regression guard."
+verification: "Demonstrate original failure and run the targeted regression test."
+exit_output: "Evidence-backed cause, minimal change, and test result."
 category: "software-engineering"
 ---
 

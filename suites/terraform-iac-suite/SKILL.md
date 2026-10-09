@@ -1,6 +1,12 @@
 ---
 name: terraform-iac-suite
 description: "Master unified Terraform & Infrastructure as Code (IaC) suite. Unifies Terraform multi-cloud patterns (AWS, Azure, GCP), Terragrunt DRY architecture, OpenTofu migration, and state locking/backend management."
+use_when: "Reviewing or changing Terraform, Terragrunt, or OpenTofu configuration."
+avoid_when: "Applying infrastructure changes without explicit authorization and rollback context."
+entry_inputs: "Provider/backend, affected resources, state context, plan, and approval boundary."
+workflow: "Inspect configuration/state safely, plan changes, validate, request approval before apply."
+verification: "Run formatting, validation, and plan; never infer apply success from planning."
+exit_output: "IaC diff, plan summary, risks, and explicit apply status."
 category: "cloud-and-security"
 tools:
   - terraform
