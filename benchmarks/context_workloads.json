@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "workloads": [
+    {
+      "name": "full-test-suite",
+      "expected_exit_code": 0,
+      "must_contain": ["Ran", "OK"],
+      "commands": {
+        "baseline": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-v"],
+        "rtk": ["rtk", "test", "{python}", "-m", "unittest", "discover", "-s", "tests", "-v"],
+        "sqz": null
+      }
+    },
+    {
+      "name": "git-status",
+      "expected_exit_code": 0,
+      "must_contain": [],
+      "commands": {
+        "baseline": ["git", "status", "--short"],
+        "rtk": ["rtk", "git", "status", "--short"],
+        "sqz": null
+      }
+    },
+    {
+      "name": "failing-test-diagnostics",
+      "expected_exit_code": 1,
+      "must_contain": ["Traceback", "AssertionError: deliberate regression sample"],
+      "commands": {
+        "baseline": ["{python}", "scripts/fixtures/verbose_failure.py"],
+        "rtk": ["rtk", "test", "{python}", "scripts/fixtures/verbose_failure.py"],
+        "sqz": null
+      }
+    },
+    {
+      "name": "syntax-build-check",
+      "expected_exit_code": 0,
+      "must_contain": [],
+      "commands": {
+        "baseline": ["{python}", "-m", "compileall", "-q", "install.py", "stack_manifest.py", "routing.py", "workflow_checks.py", "scripts", "tests"],
+        "rtk": ["rtk", "test", "{python}", "-m", "compileall", "-q", "install.py", "stack_manifest.py", "routing.py", "workflow_checks.py", "scripts", "tests"],
+        "sqz": null
+      }
+    },
+    {
+      "name": "mcp-search-output",
+      "expected_exit_code": 0,
+      "must_contain": ["aes:skill:systematic-debugging-suite", "personal:skill:bioinformatics-pipeline", "third-party:tool:sample-mcp-schema"],
+      "commands": {
+        "baseline": ["{python}", "-c", "import json,pathlib; print(json.dumps(json.loads(pathlib.Path('benchmarks/fixtures/mcp_search.json').read_text()), indent=2))"],
+        "rtk": ["rtk", "json", "benchmarks/fixtures/mcp_search.json"],
+        "sqz": null
+      }
+    }
+  ]
+}

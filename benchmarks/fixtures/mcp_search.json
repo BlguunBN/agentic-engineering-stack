@@ -1,0 +1,29 @@
+[
+  {
+    "id": "aes:skill:systematic-debugging-suite",
+    "name": "systematic-debugging-suite",
+    "kind": "skill",
+    "source": "aes",
+    "trust": "first-party",
+    "description": "Reproduce, isolate, determine root cause, and fix with regression verification.",
+    "revision": "sha256:baseline-fixture"
+  },
+  {
+    "id": "personal:skill:bioinformatics-pipeline",
+    "name": "bioinformatics-pipeline",
+    "kind": "skill",
+    "source": "personal",
+    "trust": "review-required",
+    "description": "A user-maintained specialist workflow for sequencing pipeline analysis.",
+    "revision": "sha256:personal-fixture"
+  },
+  {
+    "id": "third-party:tool:sample-mcp-schema",
+    "name": "sample-mcp-schema",
+    "kind": "tool",
+    "source": "external-index",
+    "trust": "unknown",
+    "description": "Example tool metadata. Discovery does not imply execution or activation.",
+    "requirements": ["external server configured", "user approval before activation"]
+  }
+]
