@@ -10,3 +10,4 @@
 - S5 (Stack side only): Drafted the public Finder Contract v1, added a version-gated adapter facade and mock compatibility tests. Joint release remains blocked until Finder implements the same public contract.
 - S6 (partial): Added opt-in redacted checkpoints and independent output benchmarking. RTK 0.49.0 was measured; sqz and provider token accounting were unavailable.
 - S7 (partial): Added host-neutral delegation limits and validated handoff schema; inspected Pi/OMP versions and documented actual local integration evidence. No Stack host extension is shipped or advertised as verified.
+- S8 (partial): Added 38-case positive/negative routing evaluation, CI routing gate, and release-readiness matrix. Joint Finder, sqz/provider, Linux CI, and packaged host-adapter gates remain open.

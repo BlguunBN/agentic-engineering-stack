@@ -18,7 +18,7 @@ Most AI coding setups suffer from two major flaws:
 
 ## 🏗️ The 3-Tier Routing Architecture
 
-Routing profiles are executable via `routing.py`; see [routing behavior and CLI](docs/routing.md). Common tasks select one canonical suite directly; unmatched specialist tasks return a bounded Finder query, never an automatic activation. See [workflow checks](docs/workflows.md) for scope/secrets preflight, test receipts, completion gates, and explicit risky-operation approval; [context benchmarks/checkpoints](docs/context-benchmarks.md) documents opt-in mechanisms and measured limits.
+Routing profiles are executable via `routing.py`; see [routing behavior and CLI](docs/routing.md). Common tasks select one canonical suite directly; unmatched specialist tasks return a bounded Finder query, never an automatic activation. See [workflow checks](docs/workflows.md) for scope/secrets preflight, test receipts, completion gates, and explicit risky-operation approval; [context benchmarks/checkpoints](docs/context-benchmarks.md) documents opt-in mechanisms and measured limits; [host compatibility](docs/host-compatibility.md) states tested and unverified integrations; [release readiness](docs/release-readiness.md) lists joint-project blockers.
 
 ```
                        User Prompt / Goal

@@ -19,4 +19,5 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m stack_manifest
       - run: python scripts/lint_skills.py
+      - run: python scripts/evaluate_routing.py
       - run: python -m unittest discover -s tests -v
