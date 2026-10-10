@@ -1,25 +1,23 @@
 # Release Readiness Matrix
 
-This matrix distinguishes implemented Stack-side checks from external integration gates. A green local test suite is not equivalent to a joint release.
-
 | Scenario | Local evidence | State |
 |---|---|---|
-| Stack only | Manifest validator, deterministic Tier 1 routing, workflow gates, suite lint, tests | Implemented/tested on local Windows host |
-| Stack + Finder, Contract v1 | Mock adapter contract tests only | Blocked: companion has no matching public Contract v1 |
-| Finder unavailable | Tier 1 remains usable; niche tasks return unavailable | Implemented/tested |
-| Specialist search | Mock returns personal and untrusted metadata; loading requires exact trusted ID | Mock-tested only |
-| Activation safety | Approval-preview and exact-plan guard in proposed adapter; local standalone approval gate | Mock-tested; no live Finder activation |
-| Windows + Linux | CI matrix configured; local Windows tests executed | Linux CI not executed in this workspace |
-| Third-party/malicious capability | Trust checks prevent mock load without trusted metadata; no execution occurs on search | Mock-tested; no live Finder security test |
-| Output compression | RTK 0.49.0 byte comparison, 5 workloads, one run each | Partial; sqz unavailable, no provider token accounting |
-| Host delegation | Current session isolated-worker call and handoff validation | Partial; no Stack-distributed Pi/OMP extension, other hosts unverified |
-| Clean-environment quickstart | Dry-run and disposable-root installer tests | Covered locally; actual native agent skill discovery not verified |
+| Stack only | Manifest, routing, workflows, lint, installer tests | Full tests pass on Windows and WSL Ubuntu |
+| Stack + Finder Contract v1 | Live stdio integration with Finder 0.2.0 in disposable home/library | Passes locally; paired revisions not published/pinned for hosted CI |
+| Finder unavailable/legacy | Version-gated client; Tier 1 standalone routing remains usable | Unit-tested |
+| Specialist search | Live personal-skill result plus mock blocked-result cases | Tested; search does not execute or activate content |
+| Activation safety | Preview recheck, exact approval record, live create/remove in disposable home | Tested on Windows and WSL |
+| Malicious third-party skill | Mock blocked load; Finder P8 blocked-import fixture | Fixture-tested; no live adversarial host test |
+| Output compression | Three baseline/RTK trials, `o200k_base` token counts, required diagnostics markers | `quality_ok`; sqz/provider billing still unavailable; Git status output grew |
+| Host delegation | Isolated Pi-session worker returned schema-valid compact findings; handoff checked | Minimum one-host exit met; no packaged cross-host enforcement |
+| Clean-environment quickstart | Dry-run, disposable installer and Finder registration tests | Covered; native host discovery/approval UX not verified |
 
-## Release blockers
+## Remaining release gates
 
-1. Agree and implement Contract v1 in the companion Finder, then pin compatible versions and run the joint one-agent scenario.
-2. Measure sqz separately from RTK (or record why it is unavailable), repeat trials, and capture provider usage where possible.
-3. Implement and test at least one host-specific adapter that consumes delegation policy and returns a schema-valid bounded handoff.
-4. Execute CI on both operating systems and verify actual host skill discovery before advertising host support.
+1. Publish/pin Finder 0.2.x and Stack Contract v1 revisions together, then trigger hosted CI against that pair.
+2. Compare sqz with baseline/RTK after explicit approval to install/use the third-party binary; capture provider billing only if the host exposes it.
+3. Package a host adapter only if universal concurrency/budget enforcement is a release requirement; current delegation policy is host-neutral and validated after worker return.
+4. Verify native skill discovery and approval UX on each host before advertising support.
 
-No unsupported cost-reduction percentage is published as a measured result.
+No universal token or cost-reduction percentage is claimed. Exact `o200k_base`
+output counts are tokenizer-specific and are not provider billing data.

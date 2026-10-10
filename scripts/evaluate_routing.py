@@ -27,10 +27,14 @@ def main(argv: list[str] | None = None) -> int:
     expected_suites = {entry["id"].removeprefix("aes:skill:") for entry in load_manifest()["capabilities"]}
     positive_suites = {case.get("suite") for case in cases["cases"] if case.get("label") == "positive"}
     negative_suites = {case.get("suite") for case in cases["cases"] if case.get("label") == "negative"} & expected_suites
+    positive_counts = {suite: sum(case.get("suite") == suite and case.get("label") == "positive" for case in cases["cases"]) for suite in expected_suites}
     if positive_suites != expected_suites:
         parser.error(f"Positive cases must cover all canonical suites; missing={sorted(expected_suites-positive_suites)}, extra={sorted(positive_suites-expected_suites)}")
     if negative_suites != expected_suites:
         parser.error(f"Negative cases must cover all canonical suites; missing={sorted(expected_suites-negative_suites)}")
+    undercovered = sorted(suite for suite, count in positive_counts.items() if count < 2)
+    if undercovered:
+        parser.error(f"Each canonical suite needs at least two positive cases; undercovered={undercovered}")
 
     results = []
     totals = {"positive": [0, 0], "negative": [0, 0]}

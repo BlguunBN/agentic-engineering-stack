@@ -62,14 +62,17 @@ class ContextToolTests(unittest.TestCase):
                 }],
             }), encoding="utf-8")
             with redirect_stdout(StringIO()):
-                code = benchmark_main(["--spec", str(spec), "--repo", temp, "--output-dir", "results"])
+                code = benchmark_main(["--spec", str(spec), "--repo", temp, "--output-dir", "results", "--repeats", "2"])
             report = json.loads((root / "results" / "report.json").read_text(encoding="utf-8"))
             self.assertEqual(code, 0)
             self.assertTrue(report["quality_ok"])
             self.assertFalse(report["coverage_complete"])
             self.assertEqual(report["workloads"][0]["variants"]["sqz"]["status"], "not-configured")
-            self.assertTrue((root / "results" / "diagnostic.baseline.log").is_file())
-            self.assertTrue((root / "results" / "diagnostic.rtk.log").is_file())
+            baseline = report["workloads"][0]["variants"]["baseline"]
+            self.assertEqual(2, baseline["trial_count"])
+            self.assertEqual(2, len(baseline["trials"]))
+            self.assertTrue((root / "results" / "diagnostic.baseline.r1.log").is_file())
+            self.assertTrue((root / "results" / "diagnostic.rtk.r2.log").is_file())
 
 
 if __name__ == "__main__":

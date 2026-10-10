@@ -19,8 +19,8 @@ class RoutingEvalTests(unittest.TestCase):
             status = main(["--cases", str(ROOT / "evals" / "routing" / "cases.json")])
         report = json.loads(output.getvalue())
         self.assertEqual(status, 0, report["failures"])
-        self.assertEqual(report["total"], 38)
-        self.assertEqual(report["positive"], {"passed": 18, "total": 18})
+        self.assertEqual(report["total"], 56)
+        self.assertEqual(report["positive"], {"passed": 36, "total": 36})
         self.assertEqual(report["negative"], {"passed": 20, "total": 20})
 
 

@@ -2,17 +2,13 @@
 
 A collection of 18 engineering skill suites and routing guidance for AI coding agents. Host compatibility varies and is not implied by a configured installer path.
 
-The repository describes three-tier capability routing and context-efficiency practices. Their end-to-end behavior and any token or cost savings are not yet benchmarked in this checkout.
+The repository includes deterministic three-tier routing, on-demand suites, verification workflows, and opt-in context tools. See the benchmark reports for measured evidence; bytes are not provider-token or cost savings.
 
 ---
 
 ## 🌟 Why This Exists
 
-Most AI coding setups suffer from two major flaws:
-1. **Tool Overload & Flakes:** Hundreds of fragmented, overlapping skills fighting for model attention or failing silently with mangled paths.
-2. **Context Window Exhaustion:** AI agents dumping thousands of lines of logs, full-file reads, and conversational pleasantries into context, burning $100s/month and causing memory loss by turn 25.
-
-**Agentic Engineering Stack** replaces ad-hoc agent behavior with a proven, disciplined architecture.
+The stack aims to reduce unnecessary skill loading, broad file reads, and unverified completion claims. It provides policies and opt-in tools; host enforcement and measured savings are only claimed where tests or benchmark evidence support them.
 
 ---
 
@@ -25,32 +21,22 @@ Routing profiles are executable via `routing.py`; see [routing behavior and CLI]
                                │
                                ▼
         ┌──────────────────────────────────────────────┐
-        │ TIER 1: The Fast-Path Master Suites (~80%)   │
-        │ Instant 0-hop resolution for daily dev loop.  │
-        │ Pre-indexed in AGENTS.md / system prompt.    │
+        │ TIER 1: Deterministic Stack Routing          │
+        │ Select one task-relevant canonical suite.    │
+        │ Keep full suite bodies out of startup context.│
         └──────────────────────┬───────────────────────┘
                                │
                Is it a standard dev loop task?
-               ├── YES ──► Directly invoke Master Suite:
-               │           • Engineering: systematic-debugging-suite, unit-testing-suite,
-               │             code-review-standards-suite, git-workflow-suite
-               │           • Infrastructure: docker-containers-suite, kubernetes-k8s-suite,
-               │             terraform-iac-suite
-               │           • Automation: browser-automation-suite, web-scraping-suite,
-               │             office-documents-suite
-               │           • UI & Design: ui-design-systems-suite, ux-accessibility-suite,
-               │             figma-design-prototyping-suite, frontend-webapp-design-suite,
-               │             mobile-native-ui-suite, creative-3d-motion-suite,
-               │             landing-page-cro-suite, ai-generative-ui-suite
+               ├── YES ──► Route to one matching suite
+               │           from the 18-suite manifest/profile
                │
                └── NO (Specialized Domain / Niche Tool)
                                │
                                ▼
         ┌──────────────────────────────────────────────┐
-        │ TIER 2: Just-In-Time MCP Finder (~18%)       │
-        │ Call `local-capability-finder` search.        │
-        │ Searches 8,700+ skills in <50ms.             │
-        │ Injects exact SKILL.md (<500 tokens).        │
+        │ TIER 2: Finder Contract v1 (optional)         │
+        │ Search a niche capability on demand.         │
+        │ Inspect metadata, then load one exact skill. │
         └──────────────────────┬───────────────────────┘
                                │
                Did Tier 2 find a local match?
@@ -59,9 +45,9 @@ Routing profiles are executable via `routing.py`; see [routing behavior and CLI]
                                │
                                ▼
         ┌──────────────────────────────────────────────┐
-        │ TIER 3: Ecosystem Fallback (`npx skills`)    │
-        │ Search public community registry if local is │
-        │ completely missing a brand new tool.         │
+        │ TIER 3: Manual ecosystem fallback             │
+        │ Use a public registry only when requested;   │
+        │ review trust before loading external skills. │
         └──────────────────────────────────────────────┘
 ```
 
@@ -101,19 +87,10 @@ Routing profiles are executable via `routing.py`; see [routing behavior and CLI]
 
 These are workflow recommendations, not measured guarantees. No reproducible provider-accounted benchmark is currently included; see [the current-state baseline](docs/current-state.md).
 
-1. **Layer 1: Input & Tool Gating (`low-token-bilgu` / `ponytail`)**
-   - Search exact symbols before opening files.
-   - Line-range reading enforced for files >150 lines (using `offset`/`limit`).
-   - Minimal surgical edits with `edit` rather than whole-file rewrites.
-2. **Layer 2: Subagent Context Isolation (`cavecrew`)**
-   - Heavy exploration spanning >5 files runs in isolated child subagents.
-   - Only compact findings (`path:line`) return to the main thread, keeping 20+ file reads out of memory.
-3. **Layer 3: Output Prose Compression (`caveman` / `sharp-coder`)**
-   - Eliminates conversational filler, throat-clearing, and prompt repeating.
-   - Switchable to `/caveman ultra` or `/chisle` for instant telegram-terse responses under tight budgets.
-4. **Layer 4: Context Compaction (`context-compression`)**
-   - Checkpoints state into disk artifacts (`.planning/STATE.md` or git commits) on marathons >15 turns.
-   - Structured compaction triggers before crossing 50% context window capacity.
+1. **Targeted input** — Prefer symbol/file search and bounded reads; this is guidance, not a universal host hook.
+2. **Isolated delegation** — Use a host-supported worker only when useful; Stack supplies bounded policy and handoff validation, not cross-host enforcement.
+3. **Output handling** — RTK/sqz benchmarking is optional. Preserve errors and raw logs; select one filter, never chain them by default.
+4. **Checkpoints** — `scripts/checkpoint.py` supports redacted, opt-in task notes. Automatic context usage hooks are host-specific and not claimed here.
 
 ---
 
@@ -140,7 +117,14 @@ python install.py --agents claude codex pi --skills systematic-debugging-suite u
 ### Option 3: Manual Integration
 Copy `templates/AGENTS.md` into your project root as `AGENTS.md` (or `AGENTS.local.md`) and copy only task-relevant suite folders into your agent's skills directory.
 
-The versioned [`stack.manifest.json`](stack.manifest.json) lists all 18 canonical IDs. The six JSON profiles in `profiles/` describe routing defaults; they do not instruct agents to preload every tagged suite. The standalone installer is intentionally a limited fallback and does not provide update/remove/rollback ownership. Use Finder for managed lifecycle operations once its public integration contract is available.
+The versioned [`stack.manifest.json`](stack.manifest.json) lists all 18 canonical IDs. The six profiles route on demand; they do not preload all suite bodies. The standalone installer remains a limited fallback. Finder Contract v1 is available for managed discovery and lifecycle. To register this source without activating any suite:
+
+```bash
+python scripts/register_finder_source.py --finder-root ../local-capability-finder-release --dry-run
+python scripts/register_finder_source.py --finder-root ../local-capability-finder-release
+```
+
+The command requires a Finder 0.2.x checkout. `CAPFIND_HOME` and `CAPFIND_LIBRARY` select its home/library; see [the integration contract](docs/integration-contract.md).
 
 ---
 

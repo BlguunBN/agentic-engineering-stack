@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "variants": ["baseline", "old-stack", "new-stack"],
+  "cases": [
+    {
+      "task_id": "bugfix-status-validation",
+      "prompt": "Fix the status validator so it accepts documented statuses and rejects unknown values.",
+      "verification": "python -m unittest tests.test_bugfix_fixture -v",
+      "required_skill_ids": ["aes:skill:systematic-debugging-suite", "aes:skill:unit-testing-suite"]
+    },
+    {
+      "task_id": "route-unit-testing",
+      "prompt": "Route a unit-test authoring request to the canonical suite without loading alternatives.",
+      "verification": "python -m unittest tests.test_routing.RoutingTests.test_core_routes -v",
+      "required_skill_ids": ["aes:skill:unit-testing-suite"]
+    },
+    {
+      "task_id": "installer-conflict-safety",
+      "prompt": "Install one selected suite into a disposable home and preserve any unmanaged conflicting destination.",
+      "verification": "python -m unittest tests.test_manifest_installer.InstallerTests.test_existing_unmanaged_target_is_preserved_as_conflict -v",
+      "required_skill_ids": ["aes:skill:systematic-debugging-suite", "aes:skill:unit-testing-suite"]
+    }
+  ]
+}

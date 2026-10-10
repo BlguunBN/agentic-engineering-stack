@@ -1,50 +1,51 @@
-# Stack ↔ Local Capability Finder Contract v1 (Proposed)
+# Stack ↔ Local Capability Finder Contract v1
 
-**Status: Stack-side proposal and mock only. This is not yet jointly implemented or compatible with the current Finder release.** Finder must publish the same versioned surface before S5 can be marked complete. Stack never imports Finder modules or writes Finder installation state.
+**Status: integrated and exercised locally against Finder 0.2.0.** The Stack does not import Finder modules or write Finder-managed state.
 
 ## Ownership
 
-- Stack is source-of-truth for 18 canonical suite IDs (`aes:skill:<folder>`), suite content, profiles, and workflow policies.
-- Finder owns its derived index, content revisions/hashes, trust/compatibility evaluation, activation state, and durable native installs.
-- Register Stack's manifest/source once under namespace `aes`; registration must be idempotent and must not duplicate native skill directories.
+- Stack owns the 18 suite definitions, their content, routing profiles, and workflow rules.
+- Finder owns the derived catalog, stable source IDs, revisions/hashes, trust decisions, installation state, and activation manifests.
+- Register the Stack's `suites/` directory once under namespace `aes` using Finder's documented `library_catalog.py register-source` CLI. Registration indexes source content; it does not activate suites.
 
-## Version handshake
+## Version gate
 
-Finder exposes `get_contract_info()` returning:
+Before using contract features, call MCP `get_contract_info`. It must return:
 
 ```json
-{"contract": "local-capability-finder", "version": 1, "features": ["register_source", "search", "get", "load", "activation-preview"]}
+{
+  "contract": "local-capability-finder",
+  "version": 1,
+  "features": ["register_source", "search", "get", "load", "activation-preview", "activation", "deactivation", "tool-schema"],
+  "registration": "library_catalog.py register-source"
+}
 ```
 
-Unsupported major versions produce `INCOMPATIBLE_CONTRACT`; unavailable methods/features produce `UNSUPPORTED_OPERATION`. Do not infer Contract v1 from an MCP server name or transport protocol version.
+Reject a missing/unknown major version or a missing required feature. MCP transport protocol version and Finder package version are separate from Contract v1.
 
-## Read-only operations
+## Stable identity and read operations
 
-| Operation | Contract behavior |
-|---|---|
-| `register_source(namespace, manifest_path)` | Register/refresh derived source index; idempotent; no activation. |
-| `search_capabilities(query, k=3, kind?, agent?, source?)` | Metadata only, at most `k` results; personal capabilities remain searchable. |
-| `get_capability(id)` | Exact canonical ID metadata: kind, source, revision/hash, trust, host compatibility, requirements. |
-| `load_skill(id, revision?)` | Return one exact skill body, optionally pinned. Reject blocked/untrusted content unless explicitly reviewed/allowed by caller policy. |
-| `get_tool_schema(id)` | Return one selected indexed tool schema, when supported. |
+Canonical IDs are `aes:skill:<suite-folder>`. Editing a skill changes its SHA-256 revision, not its ID. Same-name capabilities from other sources remain distinct IDs.
 
-Errors are structured with stable codes: `NOT_FOUND`, `AMBIGUOUS_ID`, `UNTRUSTED`, `UNSUPPORTED_AGENT`, `CONFLICT`, `STALE_REVISION`, `PERMISSION_DENIED`, `INCOMPATIBLE_CONTRACT`, `UNSUPPORTED_OPERATION`.
+1. `search_capabilities(query, kind?, limit?, agent?, project_hint?)` returns bounded metadata, never full skill bodies.
+2. `get_capability(capability_id)` returns exact metadata, source, trust, compatibility, and current revision.
+3. `load_skill(capability_id, revision?)` returns only that SKILL.md. A stale revision or untrusted source is rejected by the Stack adapter.
+4. `get_tool_schema(capability_id)` reads one selected schema when Finder has captured it.
 
-## State-changing operations
+The Stack's `FinderContractClient` normalizes Finder's public fields. Its transport is `adapters/finder_mcp.py`; source registration invokes only the documented Finder CLI and then verifies all expected IDs through public MCP lookups.
 
-`prepare_activation(id, agent)` returns a preview plan and ownership/conflict details. `activate_skill(plan_id, approval)` applies only that approved plan; `deactivate_skill(id, agent, approval)` removes only a Finder-owned activation. Approval must identify the exact action, target, and plan/revision. Search/load never activates or executes content. Hosts without a safe approval flow must expose these operations through a user-invoked CLI instead of agent-callable MCP tools.
+## State-changing operations and approval
 
-## Required joint compatibility tests
+`prepare_activation` is a dry-run and must not change files. The Stack adapter fingerprints the plan, requires an approval record matching the exact action, plan, and target, then obtains a fresh preview before invoking `activate_skill`. Stale or conflicted plans fail closed. For deactivation, approval must match the exact capability and action; Finder removes only a manager-owned target.
 
-1. Register all 18 manifest entries with stable unique IDs.
-2. Load one exact selected skill, not all 18; changing content updates revision/hash, not ID.
-3. Personal capabilities remain discoverable via Tier 2.
-4. Finder outage leaves Stack standalone Tier 1 and reports missing specialist capability.
-5. Incompatible versions fail clearly with standalone fallback.
-6. Untrusted/blocked capabilities cannot load or activate through search alone.
-7. Activation requires an approval preview and exact authorized plan; deactivation only affects manager-owned state.
-8. Duplicate names from distinct sources remain distinct by canonical ID.
+Direct activation tools must not be called by Stack workflows outside this adapter gate. Finder separately blocks untrusted content according to its trust state.
 
-## Current compatibility evidence
+## Errors and fallback
 
-The inspected companion checkout exposes MCP `search_capabilities(query, kind?, limit, agent?, project_hint)`, `get_capability(capability_id)`, and `activate_skill(capability_id, agent)`. It does not currently expose the Contract v1 handshake, Stack registration, `load_skill`, activation preview, deactivation, pinned revisions, or the structured error set. Its search description returns `source_path`, which supports a manual/local read, but is not a versioned load API. Therefore the adapter tests in Stack use a mock contract fixture only; no joint end-to-end or activation claim is made.
+Structured errors retain stable codes such as `NOT_FOUND`, `UNTRUSTED`, `UNSUPPORTED_AGENT`, `CONFLICT`, `STALE_REVISION`, `PERMISSION_DENIED`, and `INCOMPATIBLE_CONTRACT`. If Finder is unavailable or incompatible, deterministic Tier 1 routing and the standalone profile remain usable; niche capabilities are reported unavailable rather than fabricated or installed.
+
+## Verification
+
+The Stack suite includes mock tests, a JSON-RPC stdio fixture, and a live integration test against the companion checkout. The live test registers all 18 IDs in a temporary Finder library, searches and loads one exact suite, retains a personal Tier 2 result, and exercises approved activation/deactivation in a disposable home. The companion Finder has independent joint-fixture tests for stable revisions, blocked imports, source conflicts, and downtime fallback.
+
+The locally tested pairing is Finder 0.2.0 / Contract v1 with the current Stack revision. Release CI should pin both revisions; do not float on `main`.
