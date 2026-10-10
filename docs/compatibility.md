@@ -28,7 +28,9 @@ modules or write Finder indexes, trust state, locks, or activation manifests.
 checkout in a disposable home/library. `tests/test_finder_mcp_wire.py` covers
 the protocol independently of that checkout.
 
-Finder 0.2.x / Contract v1 is the compatible range. Missing or incompatible
-handshakes fail explicitly; standalone Stack routing remains available. Release
-validation must pin the two repository revisions together. Source registration
-is documented in `README.md` and is not an automatic activation.
+Finder 0.2.x / Contract v1 is the compatible review range. The Stack workflow
+pins the Finder review commit and the paired hosted run passed; see
+`docs/release-validation.md`. This review pin is not a published compatibility
+release. Missing or incompatible handshakes fail explicitly; standalone Stack
+routing remains available. Source registration is documented in `README.md` and
+is not an automatic activation.

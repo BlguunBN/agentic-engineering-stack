@@ -1,6 +1,6 @@
 # Release validation report (review snapshots)
 
-**State: review validation only.** No release tags, published Finder/Stack versions, package publication, or production rollout have been created. The paired workflow pins Finder exactly; merge/release decisions remain separate.
+**State: review validation only.** No tag or package publication has been made from these review snapshots. Finder has a prior `v0.1.1` release; it predates this Contract v1 review and is not the paired candidate. No Stack release is published. The paired workflow pins Finder exactly; merge/release decisions remain separate.
 
 ## Reviewed revisions and hosted evidence
 
