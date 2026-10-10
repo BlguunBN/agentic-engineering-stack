@@ -10,7 +10,19 @@ The current installer maps both `gemini` and `agy` to different directories unde
 
 The companion checkout currently exposes MCP tools named `search_capabilities`, `get_capability`, and `activate_skill` (`capability_mcp.py`). Search takes `query`, optional `kind`, `limit`, `agent`, and `project_hint`; exact lookup accepts `capability_id`. The inspected public surface does not currently expose the proposed `load_skill`, source registration, prepare-activation, or deactivate methods, nor a shared Contract v1 schema/version. Its search result documentation points callers to a `source_path` for direct skill-file reading.
 
-Therefore Stack/Finder compatibility is **not yet Contract v1 compatible**. Do not import Finder internals, assume proposed APIs exist, or call the current activation method as a substitute for an approval-preview flow. S5 must be gated on joint contract agreement and a public compatible Finder implementation; until then, use a test fixture/mock and preserve standalone Stack behavior.
+The companion checkout now implements Contract v1 for skills
+(`docs/integration-contract.md` in local-capability-finder):
+`search_capabilities`, `get_capability`, `load_skill` (exact-ID SKILL.md
+with revision check), `prepare_activation` (dry-run findings), and
+trust-gated `activate_skill`. Live verification on 2026-10-10: the Finder
+registers this repo's `suites/` as source `aes` and resolves all 18 suites
+as `aes:skill:*` with no native installation required.
+
+Therefore S5 is **unblocked for Stack-side adoption**: use only the public
+MCP/CLI surface above, key suites by their `aes:skill:*` stable IDs, and
+treat `prepare_activation` findings as the approval gate. Do not import
+Finder internals. The compatibility table in the contract doc (not
+`main`-coupling) governs pinned releases.
 
 ## Safe integration boundary
 
