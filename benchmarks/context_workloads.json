@@ -17,7 +17,7 @@
       "must_contain": [],
       "commands": {
         "baseline": ["git", "status", "--short"],
-        "rtk": ["rtk", "git", "status", "--short"],
+        "rtk": null,
         "sqz": null
       }
     },

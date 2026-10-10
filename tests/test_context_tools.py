@@ -15,6 +15,12 @@ from scripts.checkpoint import main as checkpoint_main
 
 
 class ContextToolTests(unittest.TestCase):
+    def test_rtk_is_disabled_for_the_counterproductive_git_status_workload(self):
+        spec = json.loads((ROOT / "benchmarks" / "context_workloads.json").read_text(encoding="utf-8"))
+        workload = next(row for row in spec["workloads"] if row["name"] == "git-status")
+        self.assertIsNone(workload["commands"]["rtk"])
+        self.assertEqual(["git", "status", "--short"], workload["commands"]["baseline"])
+
     def test_checkpoint_preview_is_redacted_and_does_not_persist(self):
         with tempfile.TemporaryDirectory() as temp:
             state_root = Path(temp) / "state"

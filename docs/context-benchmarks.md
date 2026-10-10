@@ -20,7 +20,9 @@ markers (`quality_ok: true`). `coverage_complete` is false because sqz is not
 configured/installed; it was not installed as part of this work. The result
 supports a reduction in model-input output tokens for the full-test and
 failure-diagnostic workloads under this tokenizer, but it is not a provider
-usage or cost claim. RTK increased the short git-status workload.
+usage or cost claim. RTK increased the short git-status workload, so that
+workload's RTK variant is now disabled in `benchmarks/context_workloads.json`;
+future runs retain the baseline measurement without paying wrapper overhead.
 
 Reproduce:
 
