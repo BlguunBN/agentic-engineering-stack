@@ -6,10 +6,10 @@
 
 | Repository | Review ref | Revision | Hosted validation |
 |---|---|---|---|
-| Local Capability Finder | `review/finder-contract-v1` | `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76` | CI passed on Windows and Ubuntu, Python 3.11/3.12/3.13; CLI package smoke passed on both operating systems. |
-| Agentic Engineering Stack | `stack/verify-and-complete-s6-s8` | `6bff1d582c037f86bce365ae8a5011266eac20b2` | Hosted Windows/Ubuntu CI passed on Python 3.11/3.12 with the exact Finder pin above; the run exercised live MCP contract tests. |
+| Local Capability Finder | `review/finder-contract-v1` | `1886809b5fce5e340251ca533e1dea89cdf2d50f` | Latest hosted CI passed on Windows/Ubuntu, Python 3.11/3.12/3.13; CLI package smoke passed on both operating systems. Run: https://github.com/BlguunBN/local-capability-finder/actions/runs/38028202593. |
+| Agentic Engineering Stack | `stack/verify-and-complete-s6-s8` | `0ef5cb6e88e8c5f2834a77c5cea2f84cb24f08b0` | Latest hosted Windows/Ubuntu CI passed on Python 3.11/3.12 with Finder pinned to the code-tested review commit below; the run exercised live MCP contract tests. Run: https://github.com/BlguunBN/agentic-engineering-stack/actions/runs/38028343778. |
 
-[Joint Stack CI run](https://github.com/BlguunBN/agentic-engineering-stack/actions/runs/38028044978) passed all four OS/Python jobs with Finder pinned to `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76`. The Stack commit under test was `6bff1d582c037f86bce365ae8a5011266eac20b2`; the subsequent report-only documentation update does not change code or workflow behavior. Do not describe this review validation as a published release.
+The paired Stack CI run passed all four OS/Python jobs with Finder pinned to `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76`. The Finder review branch's current HEAD adds documentation on top of that tested code commit; its independent current-HEAD CI is linked above. Do not describe this review validation as a published release.
 
 ## Local integration and host evidence
 

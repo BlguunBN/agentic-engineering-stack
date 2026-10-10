@@ -6,9 +6,9 @@ This matrix separates repository/contract tests from native host support. A conf
 
 | Surface | Evidence | Status |
 |---|---|---|
-| Stack standalone | Stack unit tests, manifest/lint/routing/handoff checks | Hosted Windows and Ubuntu CI passed for Python 3.11 and 3.12 on Stack review revision `6bff1d5`, including the joint pin. |
-| Finder standalone | Finder unit tests and portable retrieval evaluation | Hosted Windows and Ubuntu CI passed for Python 3.11, 3.12, and 3.13 on Finder review revision `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76`. |
-| Finder package | CLI syntax, package contents, installed-package/MCP smoke checks | Hosted Ubuntu and Windows package jobs passed for Finder review revision `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76`. |
+| Stack standalone | Stack unit tests, manifest/lint/routing/handoff checks | Hosted Windows and Ubuntu CI passed for Python 3.11 and 3.12 on Stack review HEAD `0ef5cb6e88e8c5f2834a77c5cea2f84cb24f08b0`, including the joint pin. |
+| Finder standalone | Finder unit tests and portable retrieval evaluation | Hosted Windows and Ubuntu CI passed for Python 3.11, 3.12, and 3.13 on Finder review HEAD `1886809b5fce5e340251ca533e1dea89cdf2d50f`. |
+| Finder package | CLI syntax, package contents, installed-package/MCP smoke checks | Hosted Ubuntu and Windows package jobs passed for Finder review HEAD `1886809b5fce5e340251ca533e1dea89cdf2d50f`. |
 | Stack + Finder Contract v1 | Stack workflow checks out the exact Finder SHA above; live stdio tests exercise registration, exact-ID search/load, personal-skill fallback, and approved activation/deactivation in a disposable home | Passed hosted Windows/Ubuntu Python 3.11/3.12 matrix; see the linked run in [release validation](release-validation.md). |
 | MCP protocol compatibility | Finder contract handshake and stdio wire fixtures | Contract v1 is distinct from transport protocol version. The Stack rejects missing/incompatible contracts and retains deterministic Tier 1 behavior. |
 
