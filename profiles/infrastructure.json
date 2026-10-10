@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": "infrastructure",
+  "purpose": "Use core direct infrastructure routes with risk-aware operational gates.",
+  "max_loaded_suites": 2,
+  "fallback": "finder-specialist-when-needed",
+  "extends": "core",
+  "gates": ["read-only-inspection-first", "approval-before-apply", "risk-and-rollback-review"],
+  "routes": []
+}

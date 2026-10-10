@@ -1,6 +1,12 @@
 ---
 name: web-scraping-suite
 description: "Master unified web scraping & data extraction suite. Routes intelligently between Firecrawl (single-page/crawl/agent JSON), Apify (social media platforms), HasData (SERP/e-commerce), Skyvern (visual/behind-login), and Defuddle (clean markdown)."
+use_when: "Extracting public web content or collecting data from an authorized source."
+avoid_when: "Accessing private/login-gated data without authorization or violating site policy."
+entry_inputs: "Target URLs, allowed scope, desired fields, rate limits, and output schema."
+workflow: "Choose the least complex permitted method, collect bounded data, validate results."
+verification: "Check source coverage, schema, errors, and compliance with access limits."
+exit_output: "Structured output, source/provenance, and collection limitations."
 category: "data-and-research"
 tools:
   - firecrawl

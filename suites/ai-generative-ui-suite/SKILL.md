@@ -1,6 +1,12 @@
 ---
 name: ai-generative-ui-suite
 description: "Master unified AI Generative UI & Vibe-Coding Refinement suite. Integrates Google Stitch prompt engineering, autonomous AutoClaw design pipelines, Design Lab multi-variant testing, vibe-code production cleanup, and infinite canvas deliverables."
+use_when: "Generating UI concepts or hardening generated prototypes for production."
+avoid_when: "Implementing ordinary UI without a generative-design workflow."
+entry_inputs: "Product goal, target users, design constraints, existing app and generated assets."
+workflow: "Choose generation path, produce variants, harden selected implementation, verify."
+verification: "Check responsive states, accessibility, real data behavior, dependencies, and tests."
+exit_output: "Selected design, production changes, and verification evidence."
 category: "ai-agents-and-ml"
 tools:
   - stitch

@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "name": "small-change",
+  "minimum_evidence": [],
+  "approval_actions": ["delete", "deploy", "apply", "modify-secrets", "install-third-party"]
+}

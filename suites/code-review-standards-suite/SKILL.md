@@ -1,6 +1,12 @@
 ---
 name: code-review-standards-suite
 description: "Master unified code review and standards suite. Integrates general code review, Uncle Bob's Clean Code (SOLID/DRY), Fred Brooks architectural smell analysis (coupling/decay), and AI slop detection into a multi-pillar review protocol."
+use_when: "Reviewing a proposed diff for correctness, security, maintainability, or architecture."
+avoid_when: "Implementing a change without a review request or reviewable diff."
+entry_inputs: "Diff, relevant surrounding code, intended behavior, and test evidence."
+workflow: "Inspect context, check correctness and risks, prioritize evidence-backed findings."
+verification: "Validate each finding against code and tests; avoid speculative issues."
+exit_output: "Severity-ranked findings with file/line evidence, or no findings."
 category: "software-engineering"
 ---
 

@@ -1,6 +1,12 @@
 ---
 name: office-documents-suite
 description: "Master unified Office & document processing suite. Consolidates PDF reading/extraction/forms/OCR (`pdf`), Microsoft Word `.docx` authoring (`docx`), and Excel `.xlsx` spreadsheets modeling (`xlsx`). Preserves exact formatting and formulas."
+use_when: "Reading, extracting, editing, or generating PDF, DOCX, or XLSX files."
+avoid_when: "Handling non-office formats or changing content without preserving required layout."
+entry_inputs: "Source file, desired edits/extraction, formatting requirements, and output format."
+workflow: "Select a format-appropriate library, process minimal content, validate output."
+verification: "Reopen generated files and check text, formulas, tables, and formatting."
+exit_output: "Requested document/data artifact with format-specific checks."
 category: "creative-and-media"
 tools:
   - python

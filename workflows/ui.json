@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "name": "ui",
+  "minimum_evidence": ["ui"],
+  "approval_actions": ["delete", "deploy", "apply", "install-third-party"]
+}

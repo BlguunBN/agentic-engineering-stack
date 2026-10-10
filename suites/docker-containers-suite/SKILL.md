@@ -1,6 +1,12 @@
 ---
 name: docker-containers-suite
 description: "Master unified Docker & containerization suite. Covers multi-stage Dockerfiles, image layer caching, security hardening (distroless, non-root), Docker Compose architectures, and local development setups."
+use_when: "Creating, debugging, sizing, or hardening Docker images and Compose services."
+avoid_when: "Changing orchestration beyond containers or editing app code unrelated to builds."
+entry_inputs: "Application runtime, build/test commands, deployment constraints, and current container files."
+workflow: "Inspect existing configuration, choose build/runtime stages, harden, build and test."
+verification: "Build the image and inspect runtime user, secrets, health, and startup behavior."
+exit_output: "Container changes with build and runtime verification results."
 category: "cloud-and-security"
 tools:
   - docker
@@ -29,32 +35,9 @@ A comprehensive guide for containerization, production multi-stage builds, and c
             └──> Audit layer caching order and add `.dockerignore`.
 ```
 
-## 2. Production Multi-Stage Dockerfile Template (Node/TypeScript)
+## 2. Production Multi-Stage Dockerfile Template
 
-```dockerfile
-# Stage 1: Build & Dependencies
-FROM node:22-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build && npm prune --production
-
-# Stage 2: Minimal Distroless / Hardened Runtime
-FROM node:22-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-
-# Security: Non-root user
-USER node
-
-COPY --from=builder --chown=node:node /app/node_modules ./node_modules
-COPY --from=builder --chown=node:node /app/dist ./dist
-COPY --from=builder --chown=node:node /app/package.json ./package.json
-
-EXPOSE 3000
-CMD ["node", "dist/index.js"]
-```
+A Node/TypeScript example is available in [references/node-multistage-dockerfile.md](references/node-multistage-dockerfile.md). Adapt it to the actual runtime and verify the final image; the sample is not a universal production recipe.
 
 ## 3. Container Hardening Checklist (`container-security-hardening`)
 

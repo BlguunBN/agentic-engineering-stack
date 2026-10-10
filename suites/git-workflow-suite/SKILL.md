@@ -1,6 +1,12 @@
 ---
 name: git-workflow-suite
 description: "Master unified Git and Pull Request suite. Handles branch lifecycle, conventional commit formatting, AI slop removal, merge conflict resolution, and reviewer-ready PR generation."
+use_when: "Managing Git changes, resolving conflicts, preparing commits, or writing a pull request."
+avoid_when: "A task does not require repository history or collaboration workflow."
+entry_inputs: "Working-tree state, intended commit scope, branch/base, and verification evidence."
+workflow: "Inspect status and diff, stage scoped files, verify, then summarize the change."
+verification: "Review staged paths and commit contents; never stage unrelated user changes."
+exit_output: "Scoped commit/PR summary and exact verification results."
 category: "software-engineering"
 tools:
   - git

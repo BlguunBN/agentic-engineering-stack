@@ -1,6 +1,12 @@
 ---
 name: frontend-webapp-design-suite
 description: "Master unified Frontend Web & WebApp Engineering suite. Integrates React Server Components, Next.js App Router UI patterns, Vue 3 Composition patterns, SvelteKit, responsive multi-breakpoint layouts, and production component engineering."
+use_when: "Building or changing frontend pages, components, routing, or responsive behavior."
+avoid_when: "Working only on backend, infrastructure, or visual concept generation."
+entry_inputs: "Framework/version, existing page and components, design target, and user states."
+workflow: "Follow project conventions, implement responsive components and states, verify behavior."
+verification: "Run relevant tests and inspect accessibility, responsive layout, and performance."
+exit_output: "Frontend changes with test and UI verification evidence."
 category: "software-engineering"
 tools:
   - react

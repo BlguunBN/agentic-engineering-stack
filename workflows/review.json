@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "name": "review",
+  "minimum_evidence": ["review"],
+  "approval_actions": ["delete", "deploy", "apply", "install-third-party"]
+}

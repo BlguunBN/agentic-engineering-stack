@@ -33,3 +33,6 @@ ENV/
 Thumbs.db
 desktop.ini
 *.tmp
+
+# Local task state/evidence
+.agent-state/
