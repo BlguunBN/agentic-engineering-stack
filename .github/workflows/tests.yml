@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           repository: BlguunBN/local-capability-finder
-          ref: ac7ff4b0cceb6696a289980eb140a4456ce1d831
+          ref: fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76
           path: .integration/local-capability-finder
           persist-credentials: false
       - name: Validate Stack manifest

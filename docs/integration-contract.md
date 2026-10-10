@@ -1,6 +1,6 @@
 # Stack ↔ Local Capability Finder Contract v1
 
-**Status: integrated and exercised locally against Finder 0.2.0.** The Stack does not import Finder modules or write Finder-managed state.
+**Status: Contract v1 integrated; review snapshot pin and hosted joint validation in progress.** The Stack does not import Finder modules or write Finder-managed state.
 
 ## Ownership
 
@@ -48,4 +48,4 @@ Structured errors retain stable codes such as `NOT_FOUND`, `UNTRUSTED`, `UNSUPPO
 
 The Stack suite includes mock tests, a JSON-RPC stdio fixture, and a live integration test against the companion checkout. The live test registers all 18 IDs in a temporary Finder library, searches and loads one exact suite, retains a personal Tier 2 result, and exercises approved activation/deactivation in a disposable home. The companion Finder has independent joint-fixture tests for stable revisions, blocked imports, source conflicts, and downtime fallback.
 
-The locally tested pairing is Finder 0.2.0 / Contract v1 with the current Stack revision. Release CI should pin both revisions; do not float on `main`.
+The review pairing pins Finder commit `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76`; see the [joint installation guide](joint-installation.md), [compatibility matrix](joint-compatibility.md), and [release validation report](release-validation.md) for exact evidence. Do not float on `main`, and do not infer a published compatibility release from a review pin.

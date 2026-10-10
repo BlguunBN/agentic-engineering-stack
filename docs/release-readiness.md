@@ -2,8 +2,9 @@
 
 | Scenario | Local evidence | State |
 |---|---|---|
-| Stack only | Manifest, routing, workflows, lint, installer tests | Full tests pass on Windows and WSL Ubuntu |
-| Stack + Finder Contract v1 | Live stdio integration with Finder 0.2.0 in disposable home/library | Passes locally; paired revisions not published/pinned for hosted CI |
+| Stack only | Manifest, routing, workflows, lint, installer tests | Full tests pass locally on Windows and WSL Ubuntu; hosted Windows/Ubuntu CI passed for the Stack review snapshot |
+| Finder standalone | Unit suite, portable retrieval evaluation, CLI package smoke | Hosted Windows/Ubuntu CI passed for Finder 0.2.x review snapshot `fcb6ce9` |
+| Stack + Finder Contract v1 | Live stdio integration with a disposable home/library; hosted workflow pins Finder `fcb6ce9e9f977eb553ad7b8f23d9fa6db375bb76` | Local live integration passed; final hosted paired run is pending. See [release validation](release-validation.md). |
 | Finder unavailable/legacy | Version-gated client; Tier 1 standalone routing remains usable | Unit-tested |
 | Specialist search | Live personal-skill result plus mock blocked-result cases | Tested; search does not execute or activate content |
 | Activation safety | Preview recheck, exact approval record, live create/remove in disposable home | Tested on Windows and WSL |
@@ -14,10 +15,11 @@
 
 ## Remaining release gates
 
-1. Publish/pin Finder 0.2.x and Stack Contract v1 revisions together, then trigger hosted CI against that pair.
-2. Compare sqz with baseline/RTK after explicit approval to install/use the third-party binary; capture provider billing only if the host exposes it.
-3. Package a host adapter only if universal concurrency/budget enforcement is a release requirement; current delegation policy is host-neutral and validated after worker return.
+1. Confirm the hosted Stack workflow passes with the exact Finder review pin, then record its run and final Stack SHA in [release validation](release-validation.md).
+2. Run real baseline/old-stack/new-stack engineering tasks and retain trial artifacts; deterministic fixtures are not a substitute.
+3. Compare sqz with baseline/RTK only after explicit approval to install/use the third-party binary; capture provider usage only if the host exposes it.
 4. Verify native skill discovery and approval UX on each host before advertising support.
+5. Package a host adapter only if universal concurrency/budget enforcement is a release requirement; current delegation policy is host-neutral and validated after worker return.
 
 No universal token or cost-reduction percentage is claimed. Exact `o200k_base`
 output counts are tokenizer-specific and are not provider billing data.
